@@ -1,0 +1,51 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="tertiary">
+    <ion-title>
+      Schedule
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Tab 2</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <div *ngFor="let l of last.teams">
+    <ion-card class="ion-margin-top" >
+      <ion-card-header >
+        <img class="badge" src="{{ l.strTeamLogo }}" alt="" height="50px">
+        <ion-card-title class="ion-text-center">Last 5 Games</ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  
+  <ion-card  *ngFor="let t of nextmatchList">
+    <ion-list>
+      <ion-item >
+        <ion-grid  fixed (click)="nextdetail(t)">
+          <ion-row >
+            
+              <ion-col size="10">{{ t.strEvent }}<br>
+
+                <ion-card-subtitle>Date : {{ t.dateEvent | date: 'dd MMM yyyy' }}</ion-card-subtitle>
+                <ion-card-subtitle>Kick off : {{ t.strTime }}</ion-card-subtitle>
+              </ion-col>
+
+              <ion-col size="2">
+                
+                  <ion-icon  size="large" name="football-outline" ></ion-icon>
+             
+              </ion-col>
+              
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+  
+
+</ion-content>
